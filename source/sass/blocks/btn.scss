@@ -1,0 +1,81 @@
+.btn {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  max-width: 320px;
+  height: 82px;
+
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: $color-default-white;
+  text-transform: uppercase;
+
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+
+  @media (hover: hover), screen and (min-width: 0\0) {
+    &:hover {
+      .btn__line--bottom,
+      .btn__line--top {
+        width: 0;
+      }
+    }
+  }
+}
+
+.btn__line {
+  position: absolute;
+  display: block;
+  height: 2px;
+  width: 10px;
+  transition: width $btn-transition-settings;
+
+  &--top {
+    top: 0;
+    right: 0;
+    width: 92.5%;
+  }
+
+  &--bottom {
+    bottom: 0;
+    left: 0;
+    width: 92.5%;
+  }
+
+  &--left {
+    left: 0;
+    bottom: 0;
+    width: 2px;
+    height: 59px;
+  }
+
+  &--right {
+    right: 0;
+    top: 0;
+    width: 2px;
+    height: 59px;
+  }
+}
+
+.btn--white {
+  color: $color-default-white;
+
+  .btn__line {
+    background-color: $color-default-white;
+  }
+}
+
+.btn--black {
+  color: $color-default-black;
+
+  .btn__line {
+    background-color: $color-default-black;
+  }
+}

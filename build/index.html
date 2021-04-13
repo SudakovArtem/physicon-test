@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="description" content="Project Name - описание">
+
+<!-- генерируйте favicon тут - https://realfavicongenerator.net/ -->
+<!-- ! в подключение фавикон манифеста обязательно добавьте строчки crossorigin="use-credentials"-->
+
+<!-- <link href="favicon/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">
+<link href="favicon/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">
+<link href="favicon/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">
+<link href="favicon/site.webmanifest" rel="manifest" crossorigin="use-credentials">
+<link color="#c84659" href="favicon/safari-pinned-tab.svg" rel="mask-icon">
+<link href="favicon/favicon.ico" rel="shortcut icon">
+<meta content="#ffffff" name="msapplication-TileColor">
+<meta content="favicon/browserconfig.xml" name="msapplication-config">
+<meta content="#ffffff" name="theme-color">
+ -->
+
+<!-- используйте только для шрифта находящегося на первом экране -->
+
+<!-- <link rel="preload" href="fonts/placeholder.woff2" as="font" crossorigin="anonymous"> -->
+
+<link rel="stylesheet" href="css/style.min.css">
+
+  <title>ProjectName — Главная</title>
+
+</head>
+<body>
+
+<div class="wrapper">
+  <header class="header ">
+  <h1>Пружинный маятник</h1>
+</header>
+
+
+  <main>
+    <section class="spring-pendulum container">
+      <div class="spring-pendulum__visualization visualization">
+        <div class="visualization__spring js-spring">
+          <img src="../img/image.png" alt="spring">
+          <span class="js-ball"></span>
+        </div>
+      </div>
+      <div class="spring-pendulum__parameters parameters">
+        <div class="parameters__form">
+          <form action="#">
+            <div class="purchase__input range-input range-input--fee">
+              <div class="range-input__price-inputs-wrapper">
+                <div class="range-input__price-input" data-text="от"><span class="range-input__price-label">масса груза</span>
+                  <input readonly aria-label="Назначьте начальный взнос" name="initial-fee" type="text" inputmode="numeric" value="0.5" id="weight"/>
+                </div>
+              </div>
+              <div class="range-input__price-slider-wrapper">
+                <div class="range-input__price-slider noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr js-slider-weight" id="slider-r-contribution" data-start-value="0.5" data-min-value="0.5" data-max-value="1" data-input="weight" data-suffix=" кг" data-step="0.1" data-decimals="1"></div>
+              </div>
+            </div>
+            <div class="purchase__input range-input range-input--term">
+              <div class="range-input__price-inputs-wrapper">
+                <div class="range-input__price-input" data-text="от"><span class="range-input__price-label">жесткость</span>
+                  <input readonly aria-label="Назначьте срок" name="years" type="text" inputmode="numeric" value="5" id="rigidity"/>
+                </div>
+              </div>
+              <div class="range-input__price-slider-wrapper">
+                <div class="range-input__price-slider noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr js-slider-rigidity" id="slider-r-time" data-start-value="5" data-min-value="5" data-max-value="9" data-input="rigidity" data-suffix=" Н/м" data-step="1" data-decimals="0"></div>
+              </div>
+            </div>
+            <div class="purchase__input range-input range-input--deviation">
+              <div class="range-input__price-inputs-wrapper">
+                <div class="range-input__price-input" data-text="от"><span class="range-input__price-label">первоначальное отклонение от равновесия</span>
+                  <input readonly aria-label="Назначьте срок" name="deviation" type="text" inputmode="numeric" value="10" id="deviation"/>
+                </div>
+              </div>
+              <div class="range-input__price-slider-wrapper">
+                <div class="range-input__price-slider noUi-target noUi-ltr noUi-horizontal noUi-txt-dir-ltr js-slider-deviation" id="slider-r-time1" data-start-value="10" data-min-value="0" data-max-value="20" data-input="deviation" data-suffix=" см" data-step="1" data-decimals="0"></div>
+              </div>
+            </div>
+            <button class="btn btn--black js-start-btn" type="submit">
+              <span class="btn__line btn__line--top"></span>
+              <span class="btn__line btn__line--bottom"></span>
+              <span class="btn__line btn__line--left"></span>
+              <span class="btn__line btn__line--right"></span>
+              <span class="btn__text">Старт</span>
+            </button>
+          </form>
+        </div>
+      </div>
+      <div class="spring-pendulum__characteristic characteristic">
+        <p class="characteristic__block characteristic__block--frequency">циклическая частота собственных колебаний: <span></span></p>
+        <p class="characteristic__block characteristic__block--time">время колебаний: <span></span></p>
+        <p class="characteristic__block characteristic__block--quantity">количество полных колебаний: <span></span></p>
+        <p class="characteristic__block characteristic__block--coordinate">координата x: <span></span></p>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="js/vendor.min.js"></script>
+<script src="js/main.min.js"></script>
+</body>
+</html>

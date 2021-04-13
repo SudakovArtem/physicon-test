@@ -1,0 +1,72 @@
+.js-form-error {
+  display: none;
+}
+
+.input-wrapper,
+.textarea-wrapper {
+  width: 100%;
+
+  label {
+    position: relative;
+    display: block;
+  }
+
+  input,
+  textarea {
+    padding: 0 0 22px 0;
+    width: 100%;
+
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid $color-default-black;
+
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 28px;
+    color: $color-default-black;
+
+    outline: none;
+    transition: border-color $default-transition-settings;
+
+    @include viewport--sm {
+      padding: 0 0 16px 0;
+
+      font-size: 18px;
+      line-height: 20px;
+    }
+
+    &:focus + .input-wrapper__label {
+      transform: translateY(-39px) scale(0.76);
+    }
+
+    &:focus,
+    &:hover {
+      border-color: $color-default-black;
+    }
+  }
+
+  &__label,
+  .textarea-wrapper__label {
+    position: absolute;
+    transform-origin: left bottom;
+    left: 0;
+    top: 0;
+
+    font-weight: 300;
+    font-size: 21px;
+    line-height: 28px;
+    color: $color-default-black;
+
+    opacity: 0.4;
+    transition: transform $default-transition-settings;
+
+    @include viewport--sm {
+      font-size: 18px;
+      line-height: 20px;
+    }
+  }
+}
+
+.moved {
+  transform: translateY(-39px) scale(0.76);
+}

@@ -1,0 +1,22 @@
+.range-input {
+  &:not(:last-of-type) {
+    margin-bottom: 20px;
+  }
+}
+
+.range-input__price-inputs-wrapper {
+  margin-bottom: 10px;
+}
+
+.range-input__price-input {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  input {
+    border: none;
+    background: none;
+    text-align: right;
+  }
+}
