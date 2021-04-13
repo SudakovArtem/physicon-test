@@ -27,8 +27,8 @@ const initPendulum = () => {
     spring.style.height = null;
     spring.addEventListener('transitionend', () => {
       spring.style.height = `${springHeight}px`;
-      autoPlayTimeout = setTimeout(animateSpring.bind(null), w0 * defaultDuration);
     }, {once: true});
+    autoPlayTimeout = setTimeout(animateSpring.bind(null), w0 * defaultDuration);
   };
 
   btn.addEventListener('click', (evt) => {
@@ -64,6 +64,7 @@ const initPendulum = () => {
       document.querySelector('.js-slider-weight').removeAttribute('disabled');
       document.querySelector('.js-slider-rigidity').removeAttribute('disabled');
     }
+    btn.blur();
   });
 
   window.rigiditySlider.on('update', (values, handle) => {

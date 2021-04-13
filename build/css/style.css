@@ -856,6 +856,10 @@ button,
       padding: 0; } }
 
 .header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -877,13 +881,15 @@ button,
           flex-grow: 1;
   display: -ms-grid;
   display: grid;
-      grid-template-areas: "visualization parameters" "visualization characteristic";
-  -ms-grid-rows: calc(50% - 15px) 30px calc(50% - 15px);
-  grid-template-rows: calc(50% - 15px) calc(50% - 15px);
-  -ms-grid-columns: calc(50% - 15px) 30px calc(50% - 15px);
+  -ms-grid-rows: calc(68% - 15px) calc(32% - 15px);
+  grid-template-rows: calc(68% - 15px) calc(32% - 15px);
+  -ms-grid-columns: calc(50% - 15px) calc(50% - 15px);
   grid-template-columns: calc(50% - 15px) calc(50% - 15px);
   grid-gap: 30px;
-  margin: 0; }
+  margin: 0;
+  min-height: calc(100vh - 100px);
+  padding-top: 100px;
+  padding-bottom: 30px; }
 
 .spring-pendulum__visualization,
 .spring-pendulum__parameters,
@@ -928,8 +934,34 @@ button,
     -webkit-transition: width 0.3s ease, height 0.3s ease;
     transition: width 0.3s ease, height 0.3s ease; }
 
-.spring-pendulum__parameters form {
-  width: 100%;
+.spring-pendulum__parameters {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column; }
+  .spring-pendulum__parameters form {
+    width: 100%;
+    -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+            flex-grow: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    padding: 18px 30px 30px; }
+  .spring-pendulum__parameters .btn {
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    margin-top: auto; }
+
+.parameters__form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -937,16 +969,17 @@ button,
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  padding: 30px; }
-
-.spring-pendulum__parameters .btn {
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  margin-top: 50px; }
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1; }
 
 .spring-pendulum__characteristic {
-  padding: 30px; }
+  padding: 18px 30px; }
+
+.characteristic__block {
+  margin: 0; }
+  .characteristic__block:not(:last-of-type) {
+    margin-bottom: 10px; }
 
 .js-form-error {
   display: none; }
@@ -1091,7 +1124,7 @@ button,
     background-color: #000000; }
 
 .range-input:not(:last-of-type) {
-  margin-bottom: 20px; }
+  margin-bottom: 10px; }
 
 .range-input__price-inputs-wrapper {
   margin-bottom: 10px; }
