@@ -1,0 +1,11 @@
+.characteristic {
+  padding: 18px 30px;
+}
+
+.characteristic__block {
+  margin: 0;
+
+  &:not(:last-of-type) {
+    margin-bottom: 10px;
+  }
+}

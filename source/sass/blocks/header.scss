@@ -12,5 +12,9 @@
   h1 {
     margin: 0;
     text-align: center;
+
+    @include viewport--sm {
+      font-size: 28px;
+    }
   }
 }

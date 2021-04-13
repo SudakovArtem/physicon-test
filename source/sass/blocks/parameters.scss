@@ -1,0 +1,27 @@
+.parameters {
+  display: flex;
+  flex-direction: column;
+
+  form {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 18px 30px 30px;
+
+    @include viewport--sm {
+      min-height: 425px;
+    }
+  }
+
+  .btn {
+    align-self: center;
+    margin-top: auto;
+  }
+}
+
+.parameters__form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}

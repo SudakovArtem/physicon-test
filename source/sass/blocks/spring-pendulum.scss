@@ -1,4 +1,5 @@
 .spring-pendulum {
+  width: 100%;
   flex-grow: 1;
   display: grid;
   grid-template-rows: calc(68% - 15px) calc(32% - 15px);
@@ -8,6 +9,11 @@
   min-height: calc(100vh - 100px);
   padding-top: 100px;
   padding-bottom: 30px;
+
+  @include viewport--sm {
+    display: flex;
+    flex-direction: column;
+  }
 }
 
 .spring-pendulum__visualization,
@@ -16,73 +22,3 @@
   border: 2px solid $color-default-black;
 }
 
-.spring-pendulum__visualization {
-  grid-row-start: 1;
-  grid-row-end: 3;
-  display: flex;
-  justify-content: center;
-}
-
-.visualization__spring {
-  position: relative;
-  width: 97px;
-  height: 200px;
-  transition: height $default-transition-settings;
-
-  img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  span {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 100%;
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background-color: gray;
-    transition: width $default-transition-settings, height $default-transition-settings;
-  }
-}
-
-.spring-pendulum__parameters {
-  display: flex;
-  flex-direction: column;
-
-  form {
-    width: 100%;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    padding: 18px 30px 30px;
-  }
-
-  .btn {
-    align-self: center;
-    margin-top: auto;
-  }
-}
-
-.parameters__form {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.spring-pendulum__characteristic {
-  padding: 18px 30px;
-}
-
-.characteristic__block {
-  margin: 0;
-
-  &:not(:last-of-type) {
-    margin-bottom: 10px;
-  }
-}

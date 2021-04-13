@@ -1,7 +1,7 @@
 import {ieFix} from './utils/ie-fix';
 import {iosVhFix} from './utils/ios-vh-fix';
 
-import {initPurchaseRange} from './modules/init-purchase-range';
+import {initRange} from './modules/init-range';
 import {initPendulum} from './modules/pendulum';
 
 // Utils
@@ -13,5 +13,5 @@ iosVhFix();
 // Modules
 // ---------------------------------
 
-initPurchaseRange();
+initRange();
 initPendulum();

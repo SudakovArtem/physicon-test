@@ -5,9 +5,9 @@ const purchaseSlider = document.querySelector('.js-slider-deviation');
 const weightSlider = document.querySelector('.js-slider-weight');
 const rigiditySlider = document.querySelector('.js-slider-rigidity');
 
-const initPurchaseRange = () => {
-  const deviationInput = document.querySelector(`#${purchaseSlider.dataset.input}`);
+const initRange = () => {
 
+  // инициализация слайдера изменения первоначального отклонения от равновесия
   if (purchaseSlider) {
     window.deviationSlider = noUiSlider.create(purchaseSlider, {
       start: [+purchaseSlider.dataset.startValue],
@@ -26,6 +26,7 @@ const initPurchaseRange = () => {
     });
   }
 
+  // инициализация слайдера изменения массы
   if (weightSlider) {
     window.weightSlider = noUiSlider.create(weightSlider, {
       start: [+weightSlider.dataset.startValue],
@@ -44,6 +45,7 @@ const initPurchaseRange = () => {
     });
   }
 
+  // инициализация слайдера изменения жесткости
   if (rigiditySlider) {
     window.rigiditySlider = noUiSlider.create(rigiditySlider, {
       start: [+rigiditySlider.dataset.startValue],
@@ -61,42 +63,6 @@ const initPurchaseRange = () => {
       }),
     });
   }
-
-  // function setListeners(slider, input) {
-  //   if (slider && input) {
-  //     slider.on('update', (values, handle) => {
-  //       input.value = values[handle];
-  //     });
-  //
-  //     slider.on('set', () => {
-  //       const form = input.closest('form');
-  //       if (form) {
-  //         const formChangeEv = new CustomEvent('change');
-  //         const formInputEv = new CustomEvent('input');
-  //         form.dispatchEvent(formChangeEv);
-  //         form.dispatchEvent(formInputEv);
-  //       }
-  //     });
-  //
-  //     input.addEventListener('focus', () => {
-  //       if (input.value === '0') {
-  //         input.value = '';
-  //       }
-  //     });
-  //
-  //     input.addEventListener('blur', () => {
-  //       if (input.value === '') {
-  //         input.value = '0';
-  //       }
-  //     });
-  //
-  //     input.addEventListener('input', function () {
-  //       slider.noUiSlider.set([this.value, null]);
-  //     });
-  //   }
-  // }
-
-  // setListeners(window.deviationSlider, deviationInput);
 };
 
-export {initPurchaseRange};
+export {initRange};
