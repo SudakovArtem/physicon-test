@@ -2,6 +2,10 @@ const initPendulum = () => {
   const spring = document.querySelector('.js-spring');
   const ball = document.querySelector('.js-ball');
   const btn = document.querySelector('.js-start-btn');
+  const characteristicFrequency = document.querySelector('.characteristic__block--frequency span');
+  const characteristicTime = document.querySelector('.characteristic__block--time span');
+  const characteristicQuantity = document.querySelector('.characteristic__block--quantity span');
+  const characteristicCoordinate = document.querySelector('.characteristic__block--coordinate span');
   const defaultDuration = 100;
   let springHeight = 200;
 
@@ -10,7 +14,7 @@ const initPendulum = () => {
     return str;
   };
 
-  let m, k, x0, w0;
+  let m, k, x0, w0, t;
 
   const minLenth = 200;
   const lenth = 500;
@@ -35,6 +39,15 @@ const initPendulum = () => {
       k = getNumberFromPrice(document.querySelector('input#rigidity').value);
       x0 = getNumberFromPrice(document.querySelector('input#deviation').value);
       w0 = parseFloat(Math.sqrt(k / m).toFixed(1));
+      t = parseFloat(((2 * Math.PI) * (Math.sqrt(k / m))).toFixed(1));
+      characteristicFrequency.innerText = w0;
+      characteristicTime.innerText = t;
+      characteristicCoordinate.innerText = '';
+      characteristicQuantity.innerText = '∞';
+
+      document.querySelector('.js-slider-deviation').setAttribute('disabled', true);
+      document.querySelector('.js-slider-weight').setAttribute('disabled', true);
+      document.querySelector('.js-slider-rigidity').setAttribute('disabled', true);
 
       spring.style.transitionDuration = `${defaultDuration * w0}ms`;
       animateSpring();
@@ -46,6 +59,10 @@ const initPendulum = () => {
         btn.classList.remove('active');
         btnText.innerText = 'старт';
       }
+
+      document.querySelector('.js-slider-deviation').removeAttribute('disabled');
+      document.querySelector('.js-slider-weight').removeAttribute('disabled');
+      document.querySelector('.js-slider-rigidity').removeAttribute('disabled');
     }
   });
 
