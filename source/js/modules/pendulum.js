@@ -15,9 +15,36 @@ const initPendulum = () => {
   const deviationInput = document.querySelector('input#deviation');
   const weightInput = document.querySelector('input#weight');
   const rigidityInput = document.querySelector('input#rigidity');
+  const minCoordinate = 0;
   let autoPlayTimeout;
   let springHeight = 200;
   let m, k, x0, w0, t;
+  let oscillationCounter = -1;
+  let startDate;
+  let clocktimer;
+
+  // функция запуска секундомера
+  const startTIME = () => {
+    const thisDate = new Date();
+    let t = thisDate.getTime() - startDate.getTime();
+    let ms = t % 1000;
+    t -= ms;
+    ms = Math.floor(ms / 10);
+    t = Math.floor(t / 1000);
+    let s = t % 60;
+    t -= s;
+    t = Math.floor(t / 60);
+    let m = t % 60;
+    t -= m;
+    t = Math.floor(t / 60);
+    let h = t % 60;
+    if (h < 10) h = '0' + h;
+    if (m < 10) m = '0' + m;
+    if (s < 10) s = '0' + s;
+    if (ms < 10) ms = '0' + ms;
+    characteristicTime.innerText = h + ':' + m + ':' + s + '.' + ms;
+    clocktimer = setTimeout(startTIME.bind(null), 10);
+  };
 
   // функция преобразования строки с буквами в число
   const getNumberFromPrice = (str) => {
@@ -32,10 +59,14 @@ const initPendulum = () => {
   // функция запуска анимации
   const animateSpring = () => {
     spring.style.height = null;
+    characteristicCoordinate.innerText = minCoordinate + ' см';
     spring.addEventListener('transitionend', () => {
       spring.style.height = `${springHeight}px`;
+      characteristicCoordinate.innerText = minCoordinate + x0 + ' см';
     }, {once: true});
-    autoPlayTimeout = setTimeout(animateSpring.bind(null), w0 * defaultDuration);
+    autoPlayTimeout = setTimeout(animateSpring.bind(null), w0 * defaultDuration * 2);
+    oscillationCounter++;
+    characteristicQuantity.innerText = oscillationCounter;
   };
 
   btn.addEventListener('click', (evt) => {
@@ -45,10 +76,8 @@ const initPendulum = () => {
       x0 = getNumberFromPrice(document.querySelector('input#deviation').value);
       t = parseFloat(((2 * Math.PI) * (Math.sqrt(k / m))).toFixed(1));
 
-      // запись значений в характеристики
-      characteristicTime.innerText = t + ' с';
-      characteristicCoordinate.innerText = x0 + ' см';
-      characteristicQuantity.innerText = '∞';
+      oscillationCounter = -1;
+      characteristicQuantity.innerText = oscillationCounter;
 
       // отключение возможности изменения параметров
       document.querySelector('.js-slider-deviation').setAttribute('disabled', true);
@@ -63,6 +92,10 @@ const initPendulum = () => {
       if (breakpointSm.matches) {
         moveTo.move(document.body);
       }
+
+      // запуск секундомера
+      startDate = new Date();
+      startTIME();
     } else {
 
       // остановка анимации
@@ -76,6 +109,9 @@ const initPendulum = () => {
       document.querySelector('.js-slider-deviation').removeAttribute('disabled');
       document.querySelector('.js-slider-weight').removeAttribute('disabled');
       document.querySelector('.js-slider-rigidity').removeAttribute('disabled');
+
+      // остановка секундомера
+      clearTimeout(clocktimer);
     }
     btn.blur();
   });
