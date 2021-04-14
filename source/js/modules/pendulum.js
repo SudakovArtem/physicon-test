@@ -98,8 +98,8 @@ const initPendulum = () => {
   // обработчик изменения массы груза
   window.weightSlider.on('update', (values, handle) => {
     weightInput.value = values[handle];
-    w0 = parseFloat(Math.sqrt(k / m).toFixed(1));
     m = getNumberFromPrice(document.querySelector('input#weight').value) / 10;
+    w0 = parseFloat(Math.sqrt(k / m).toFixed(1));
     characteristicFrequency.innerText = w0;
     ball.style.width = `${getNumberFromPrice(values[handle]) / 10 * 120}px`;
     ball.style.height = `${getNumberFromPrice(values[handle]) / 10 * 120}px`;
